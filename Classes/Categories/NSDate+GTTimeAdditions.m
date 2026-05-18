@@ -11,7 +11,7 @@
 @implementation NSDate (GTTimeAdditions)
 
 + (NSDate *)gt_dateFromGitTime:(git_time)time {
-	return [NSDate dateWithTimeIntervalSince1970:time.time];
+	return [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)time.time];
 }
 
 - (git_time)gt_gitTimeUsingTimeZone:(NSTimeZone *)timeZone {

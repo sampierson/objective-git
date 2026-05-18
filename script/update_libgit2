@@ -5,7 +5,7 @@ set -e
 # augment path to help it find cmake installed in /usr/local/bin,
 # e.g. via brew. Xcode's Run Script phase doesn't seem to honor
 # ~/.MacOSX/environment.plist
-PATH="/usr/local/bin:$PATH"
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 if [ "External/libgit2.a" -nt "External/libgit2" ]
 then
@@ -22,7 +22,7 @@ fi
 mkdir build
 cd build
 
-cmake -DBUILD_SHARED_LIBS:BOOL=OFF -DBUILD_CLAR:BOOL=OFF -DTHREADSAFE:BOOL=ON ..
+cmake -DBUILD_SHARED_LIBS:BOOL=OFF -DBUILD_CLAR:BOOL=OFF -DTHREADSAFE:BOOL=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
 cmake --build .
 
 product="libgit2.a"
