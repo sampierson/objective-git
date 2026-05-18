@@ -67,7 +67,7 @@
 }
 
 - (BOOL)isStaged {
-	return (self.git_index_entry->flags & GIT_IDXENTRY_STAGEMASK) >> GIT_IDXENTRY_STAGESHIFT;
+	return !!((self.git_index_entry->flags & GIT_IDXENTRY_STAGEMASK) >> GIT_IDXENTRY_STAGESHIFT);
 }
 
 - (GTIndexEntryStatus)status {
